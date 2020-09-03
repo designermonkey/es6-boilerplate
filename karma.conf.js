@@ -7,16 +7,11 @@ module.exports = function (config) {
 
     files: [
       {
-        pattern: 'test/*_test.js',
-        watched: false,
-      },
-      {
         pattern: 'test/**/*_test.js',
         watched: false,
       }
     ],
     preprocessors: {
-      'test/*_test.js': ['webpack', 'sourcemap'],
       'test/**/*_test.js': ['webpack', 'sourcemap'],
     },
 
@@ -24,17 +19,25 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
 
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_WARNING,
 
     browsers: ['ChromeHeadless', 'PhantomJS'],
     singleRun: true,
     concurrency: Infinity,
 
     webpack: {
-      // karma watches the test entry points
-      // (you don't need to specify the entry option)
-      // webpack watches dependencies
-      // webpack configuration
+      module: {
+        rules: [
+          {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+              options: {}
+            },
+          }
+        ]
+      }
     },
 
     webpackMiddleware: {

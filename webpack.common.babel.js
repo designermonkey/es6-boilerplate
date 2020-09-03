@@ -1,12 +1,13 @@
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import path from 'path';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import ManifestPlugin from 'webpack-manifest-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-let sassIncludePaths = require('sass-include-paths').nodeModulesSync();
+import { nodeModulesSync } from 'sass-include-paths';
+let sassIncludePaths = nodeModulesSync();
 
-module.exports = (env, argv) => {
+export default (env, argv) => {
   let config = {
     entry: {
       application: path.join(__dirname, 'src', 'index.jsx'),
