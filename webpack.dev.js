@@ -4,14 +4,9 @@ const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { exit } = require('process');
 
-// console.log(process);
-// exit(0);
-
 module.exports = (env, argv) => {
 
   let config = common(env, argv);
-
-  console.log(process.env.)
 
   return merge(config, {
     mode: 'development',
