@@ -5,6 +5,7 @@
   "scripts": {
     "test:unit": "karma start karma.conf.js --unit",
     "test:behaviour": "karma start karma.conf.js --behaviour",
+    "test": "yarn run test:unit && yarn run test:behaviour",
     "watch": "webpack-dev-server --mode development --open --config webpack.dev.babel.js",
     "dev": "webpack --mode development --config webpack.dev.babel.js",
     "build": "webpack --mode production --config webpack.prod.babel.js"
