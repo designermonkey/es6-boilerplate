@@ -1,6 +1,6 @@
 import path from 'path';
 import { merge } from 'webpack-merge';
-import common from './webpack.common.js';
+import common from './webpack.common.babel.js';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 module.exports = (env, argv) => {
