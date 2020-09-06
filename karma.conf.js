@@ -1,16 +1,27 @@
-// Karma configuration
-// Generated on Thu Sep 03 2020 16:16:49 GMT+0100 (British Summer Time)
+const { EXIT_CODE } = require('karma/lib/constants');
+
+require('@babel/register');
+const { parseConfig } = require('karma').config;
+const path = require('path');
+const { argv } = require("yargs");
 
 module.exports = function (config) {
+
+  let additionalConfig = {};
+
+  if (argv.unit) {
+    additionalConfig = parseConfig(path.join(__dirname, 'karma.unit.babel.js'))
+  }
+
+  if (argv.behaviour) {
+    additionalConfig = parseConfig(path.join(__dirname, 'karma.behaviour.babel.js'))
+  }
+
+  config.set(additionalConfig);
   config.set({
+
     frameworks: ['mocha'],
 
-    files: [
-      {
-        pattern: 'test/**/*_test.js',
-        watched: false,
-      }
-    ],
     preprocessors: {
       'test/**/*_test.js': ['webpack', 'sourcemap'],
     },
@@ -18,12 +29,8 @@ module.exports = function (config) {
     reporters: ['progress'],
     port: 9876,
     colors: true,
-
+    captureConsole: true,
     logLevel: config.LOG_WARNING,
-
-    browsers: ['ChromeHeadless', 'PhantomJS'],
-    singleRun: true,
-    concurrency: Infinity,
 
     webpack: {
       module: {
@@ -43,5 +50,6 @@ module.exports = function (config) {
     webpackMiddleware: {
       stats: 'errors-only',
     },
+
   });
 }
