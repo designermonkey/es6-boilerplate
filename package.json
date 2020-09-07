@@ -8,13 +8,14 @@
     "test": "yarn run test:unit && yarn run test:behaviour",
     "watch": "webpack-dev-server --mode development --open --config webpack.dev.babel.js",
     "dev": "webpack --mode development --config webpack.dev.babel.js",
-    "build": "webpack --mode production --config webpack.prod.babel.js"
+    "build": "webpack --mode production --config webpack.prod.babel.js",
+    "start": "node ./server"
   },
   "keywords": [],
   "author": "",
   "license": "proprietary",
   "private": true,
-  "main": "index.js",
+  "main": "server/index.js",
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -61,6 +62,7 @@
     "yargs": "^15.4.1"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
