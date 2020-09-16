@@ -1,12 +1,10 @@
-
-// Karma configuration
-// Generated on Thu Sep 03 2020 16:16:49 GMT+0100 (British Summer Time)
+import path from 'path';
 
 export default function (config) {
   config.set({
     files: [
       {
-        pattern: 'test/behaviour/**/*_test.js',
+        pattern: path.join('..', 'test', 'behaviour', '**', '*_test.js'),
         watched: false,
       }
     ],
