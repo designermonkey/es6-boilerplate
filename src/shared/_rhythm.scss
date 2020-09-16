@@ -1,0 +1,33 @@
+$vr-ratio: 1.5 !default;
+
+@function vr($font-size, $factor: 1, $ratio: $vr-ratio) {
+  @return $vr-ratio * $factor * $font-size;
+}
+
+@mixin vr-grid() {
+  background-image: linear-gradient(
+    rgba(200, 50, 50, 0.5) 1px,
+    transparent 1px
+  );
+  background-size: 1px vr(1);
+}
+
+@mixin block-padding() {
+  padding: vr(ms(1)) 8vw;
+}
+
+@mixin head-padding() {
+  padding-top: vr(ms(7));
+}
+
+@mixin top-margin() {
+  margin-top: vr(ms(1));
+}
+
+* {
+  margin: 0;
+}
+
+* + * {
+  margin-top: vr(ms(0));
+}

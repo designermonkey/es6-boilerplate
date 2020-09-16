@@ -1,12 +1,12 @@
-const path = require('path');
-const { merge } = require('webpack-merge');
-const common = require('./webpack.common.babel.js');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+import path from 'path';
+import { merge } from 'webpack-merge';
+import common from './webpack.common.babel.js';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import TerserJSPlugin from 'terser-webpack-plugin';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
 
-module.exports = (env, argv) => {
+export default (env, argv) => {
   return merge(common(env, argv), {
     mode: 'production',
     devtool: 'source-map',
@@ -41,7 +41,7 @@ module.exports = (env, argv) => {
     output: {
       filename: path.join('js', '[name].[contenthash].js'),
     },
-    mpdule: {
+    module: {
       rules: [
         // Images and Files Configuration
         {

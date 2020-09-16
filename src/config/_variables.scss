@@ -1,0 +1,46 @@
+$br-mobile-small: 360px;
+$br-mobile-medium: 375px;
+$br-mobile-large: 414px;
+
+$br-tablet-small: 600px;
+$br-tablet-medium: 768px;
+$br-tablet-large: 800px;
+
+$br-desktop-tiny: 1024px;
+$br-desktop-small: 1280px;
+$br-desktop-medium: 1440px;
+$br-desktop-large: 1600px;
+$br-desktop-huge: 1920px;
+
+$ff-source-sans-pro: "Source Sans Pro";
+$ff-nexa-rust-sans: "Nexa Rust Sans";
+$ff-body: $ff-source-sans-pro;
+$ff-header: $ff-nexa-rust-sans;
+
+$ms-root: 16px;
+$ms-base: 1rem;
+$ms-ratio: $major-second;
+$vr-ratio: $fifth;
+
+$modularscale: (
+  base: $ms-base,
+  ratio: $ms-ratio,
+  $br-mobile-small: (
+    base: 16px,
+  ),
+  $br-mobile-large: (
+    base: 18px,
+  ),
+  $br-tablet-medium: (
+    base: 20px,
+  ),
+  $br-desktop-tiny: (
+    base: 22px,
+  ),
+  $br-desktop-small: (
+    base: 24px,
+  ),
+  $br-desktop-large: (
+    base: 26px,
+  ),
+);

@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/application";
+import App from "./components/app";
+
+import Styles from "./index.scss";
 
 const root = document.createElement("div");
 root.id = "root";
+document.querySelector("body").prepend(root);
 
-document.querySelector("body").appendChild(root);
-
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, root);

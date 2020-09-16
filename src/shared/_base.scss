@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+* + * {
+  // margin-top: calc(24px + (48 - 24) * ((100vw - 320px) / (1280 - 320)));
+
+  // @include breakpoint(min-width 1280px) {
+  //   margin-top: 1.5em;
+  // }
+  @include ms-respond(margin-top, 1);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+}

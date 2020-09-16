@@ -1,0 +1,80 @@
+// font-family: 'Source Sans Pro', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+// font-family: 'Nexa Rust Sans', sans-serif;
+@import "../fonts/nexarustsans/stylesheet";
+
+@mixin font-default() {
+  font-family: "Source Sans Pro";
+  letter-spacing: 0;
+}
+
+@mixin font-heavy() {
+  font-family: "Nexa Rust Sans";
+  letter-spacing: 0;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  @include ms-respond(font-size, 0);
+}
+
+body,
+p {
+  font-size: ms(0);
+  line-height: vr(ms(0));
+  @include font-default;
+
+  &.info {
+    font-size: ms(-4);
+    line-height: vr(ms(-4));
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include font-heavy;
+}
+
+h1 {
+  font-size: ms(4);
+  line-height: vr(ms(3));
+
+  header & {
+    font-size: ms(6);
+    line-height: vr(ms(5));
+  }
+}
+
+h2 {
+  font-size: ms(3);
+  line-height: vr(ms(2));
+}
+
+h3 {
+  font-size: ms(2);
+  line-height: vr(ms(1));
+}
+
+h4 {
+  font-size: ms(1);
+  line-height: vr(ms(1));
+}
+
+h5 {
+  font-size: ms(0);
+  line-height: vr(ms(1));
+}
+
+h4 {
+  font-size: ms(0);
+  line-height: vr(ms(0));
+}

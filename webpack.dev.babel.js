@@ -3,7 +3,7 @@ import { merge } from 'webpack-merge';
 import common from './webpack.common.babel.js';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-module.exports = (env, argv) => {
+export default (env, argv) => {
 
   let config = common(env, argv);
 

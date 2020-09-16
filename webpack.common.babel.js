@@ -3,9 +3,11 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { nodeModulesSync } from './libs/sass-include-paths';
 
-import { nodeModulesSync } from 'sass-include-paths';
 let sassIncludePaths = nodeModulesSync();
+
+console.log(sassIncludePaths);
 
 export default (env, argv) => {
   let config = {
@@ -47,11 +49,14 @@ export default (env, argv) => {
               }
             },
             'postcss-loader',
+            'resolve-url-loader',
             {
               loader: 'sass-loader',
               options: {
                 sassOptions: {
                   includePaths: sassIncludePaths.concat([
+                    'node_modules/**/src',
+                    'node_modules/**/dist',
                     'libs'
                   ]),
                 }
@@ -71,6 +76,12 @@ export default (env, argv) => {
         }
       ],
     },
+    resolve: {
+      extensions: [
+        '.js',
+        '.jsx'
+      ]
+    }
   };
 
   if (argv.analyze) {
