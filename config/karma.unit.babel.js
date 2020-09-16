@@ -1,13 +1,11 @@
 import jsdom from "jsdom";
-
-// Karma configuration
-// Generated on Thu Sep 03 2020 16:16:49 GMT+0100 (British Summer Time)
+import path from 'path';
 
 export default function (config) {
   config.set({
     files: [
       {
-        pattern: 'test/unit/**/*_test.js',
+        pattern: path.join('..', 'test', 'unit', '**', '*_test.js'),
         watched: false,
       }
     ],
@@ -18,9 +16,7 @@ export default function (config) {
 
     jsdomLauncher: {
       jsdom: {
-        resources: new jsdom.ResourceLoader({
-          userAgent: "foobar",
-        })
+        resources: new jsdom.ResourceLoader()
       }
     },
   });
